@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+    <title>Kgx</title>
+
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+<h1>Students</h1>
+<div class="d-flex justify-content-end">
+<a href="/addstudent" class="btn btn-primary">Add Student</a>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Student</th>
+        <th scope="col">Dep</th>
+        <th scope="col">phone</th>
+        <th scope="col">email</th>
+        <th scope="col"> Edit </th>
+        <th scope="col"> Delete </th>
+      </tr>
+    </thead> 
+    
+        {% for student in students %}
+            <tr>
+            <th scope="row">{{student.id}}</th>
+            <td>{{student.name}}</td>
+            <td>{{student.dep}}</td >
+            <td>{{student.phone}}</td>  
+            <td>{{student.email}}</td>
+            <td><a href="/edit/{{student.id}}" class="btn btn-warning">Edit</a></td>   
+
+            <td><a href="/delete/{{student.id}}" class="btn btn-danger">Delete</a></td> 
+
+            </tr>   
+        {% endfor %}
+      
+  </table>
+
+</div>
+
+{% endblock %}
